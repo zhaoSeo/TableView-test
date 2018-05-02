@@ -25,6 +25,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "1st Section"
+        } else {
+            return "2nd Section"
+        }
+    }
     //dynamic cell 설정 prototype
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -65,6 +76,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myAlert.addAction(cancelAction)
         
         present(myAlert, animated: true, completion: nil)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+        //row와 height를 조절.
     }
 }
 
